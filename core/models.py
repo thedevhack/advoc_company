@@ -4,9 +4,9 @@ import uuid
 
 class Social_Data(models.Model):
     sdid = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    youtube = models.URLField(max_length = 300)
-    twitter = models.URLField(max_length = 300)
-    github = models.URLField(max_length = 300)
+    youtube = models.URLField(max_length = 300, blank = True, null=True)
+    twitter = models.URLField(max_length = 300, blank = True, null=True)
+    github = models.URLField(max_length = 300, blank = True, null=True)
 
 class Company(models.Model):
     name = models.CharField(max_length = 100)
@@ -23,4 +23,4 @@ class Advocate(models.Model):
     long_bio = models.CharField(max_length = 400, null=True, blank=True)
     advocate_years_exp = models.IntegerField(default = 0)
     company = models.ForeignKey(Company, null = True, on_delete=models.SET_NULL)
-    links = models.OneToOneField(Social_Data, null = True, on_delete=models.SET_NULL)
+    links = models.OneToOneField(Social_Data, null = True,blank=True, on_delete=models.SET_NULL)

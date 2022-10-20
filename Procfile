@@ -1,1 +1,1 @@
-web: python manage.py migrate && gunicorn advoc_company.asgi
+web: python manage.py migrate
